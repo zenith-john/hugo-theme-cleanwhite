@@ -60,6 +60,9 @@
     <!-- zangshang CSS -->
     <link rel="stylesheet" href="{{ "css/zanshang.css" | relURL }}">
 
+    <!-- ox-hugo CSS -->
+    <link rel="stylesheet" href="{{ "css/ox-hugo.css" | relURL }}">
+
     <!-- Custom Fonts -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -68,9 +71,37 @@
     <link rel="stylesheet" href="{{ . | absURL }}">
     {{- end }}
 
-    <!--
-    <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body, {
+              // customised options
+              // • auto-render specific keys, e.g.:
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false},
+                  {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+                  {left: "\\begin{align}", right: "\\end{align}", display: true},
+                  {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+                  {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+                  {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+                  {left: '\\[', right: '\\]', display: true}
+              ],
+              macros: {
+                  "\\RR": "\\mathbb{R}",
+                  "\\CC": "\\mathbb{C}",
+                  "\\PP": "\\mathbb{P}",
+                  "\\QQ": "\\mathbb{Q}",
+                  "\\ZZ": "\\mathbb{Z}"
+              },
+              // • rendering keys, e.g.:
+              throwOnError : false
+          });
+      });
+</script>
     <!-- jQuery -->
     <script src="{{ "js/jquery.min.js" | relURL }}"></script>
 
